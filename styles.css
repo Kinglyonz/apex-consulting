@@ -537,6 +537,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     padding-top: 80px !important;
     min-height: 100vh;
+    position: relative;
 }
 
 .hero-content {
@@ -668,12 +669,12 @@ img { max-width: 100%; display: block; }
 
 /* Scroll indicator */
 .scroll-indicator {
-    position: fixed;
+    position: absolute;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
-    z-index: 100;
+    z-index: 10;
 }
 
 .scroll-line {
