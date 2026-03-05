@@ -38,7 +38,7 @@
 
 html {
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;
     font-size: 16px;
 }
 
@@ -46,7 +46,7 @@ body {
     font-family: var(--font-body);
     background: var(--black);
     color: var(--white);
-    overflow: hidden;
+    overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -507,32 +507,16 @@ img { max-width: 100%; display: block; }
 .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* ==============================================
-   PAGE TURN SYSTEM — REALISTIC 3D BOOK FLIP
+   PAGE SECTIONS — NORMAL SCROLL LAYOUT
    ============================================== */
 .page-turn-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
 }
 
 .page {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    opacity: 0;
-    visibility: hidden;
-    transition: none;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-.page.active {
-    opacity: 1;
-    visibility: visible;
-    z-index: 10;
+    min-height: 100vh;
+    display: block;
 }
 
 .page-inner {
@@ -544,229 +528,6 @@ img { max-width: 100%; display: block; }
     z-index: 2;
 }
 
-/* Overlay container — holds shadow + the flipping 3D wrapper */
-.page-turn-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 8500;
-    pointer-events: none;
-    perspective: 800px;
-    perspective-origin: 50% 40%;
-}
-
-/* Shadow cast on the newly revealed page underneath */
-.turn-book-shadow {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 55%;
-    opacity: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* The 3D wrapper — single element that rotates with both faces inside */
-.turn-page-wrapper {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    transform-style: preserve-3d;
-    will-change: transform;
-    visibility: hidden;
-    z-index: 2;
-    filter: drop-shadow(-8px 0 30px rgba(0,0,0,0.9));
-}
-
-/* Front face of the turning page */
-.turn-page-front {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    background: linear-gradient(
-        to right,
-        #080806 0%,
-        #131210 20%,
-        #1a1916 55%,
-        #131210 100%
-    );
-}
-
-/* Gold crease line on the fold edge */
-.turn-page-front::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(
-        180deg,
-        transparent 0%,
-        rgba(218, 165, 32, 0.15) 12%,
-        rgba(218, 165, 32, 0.5) 38%,
-        rgba(255, 215, 0, 0.75) 50%,
-        rgba(218, 165, 32, 0.5) 62%,
-        rgba(218, 165, 32, 0.15) 88%,
-        transparent 100%
-    );
-    pointer-events: none;
-}
-
-/* Fold shadow gradient on front */
-.turn-page-front::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-/* Back face — revealed as page flips past 90° */
-.turn-page-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    transform: rotateY(180deg);
-    background: linear-gradient(
-        to left,
-        #080806 0%,
-        #131210 20%,
-        #1a1916 55%,
-        #131210 100%
-    );
-}
-
-/* Fold shadow on back face */
-.turn-page-back::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-/* ===== FORWARD FLIP (next page) =====
-   Wrapper on RIGHT half — pivots at screen center (left edge of wrapper) */
-.page-turn-overlay.turning-forward {
-    pointer-events: all;
-}
-
-.page-turn-overlay.turning-forward .turn-page-wrapper {
-    visibility: visible;
-    left: 50%;
-    transform-origin: left center;
-    animation: flipPageForward 1.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.page-turn-overlay.turning-forward .turn-page-front::before {
-    left: 0;
-    animation: creaseGlow 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-forward .turn-page-front::after {
-    background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 25%, transparent 55%);
-    animation: foldShadowForward 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-forward .turn-book-shadow {
-    left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 50%, transparent 100%);
-    animation: shadowFadeIn 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-forward .turn-page-back::before {
-    background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%, transparent 55%);
-    animation: backShadowForward 1.0s ease forwards;
-}
-
-/* ===== BACKWARD FLIP (previous page) =====
-   Wrapper on LEFT half — pivots at screen center (right edge of wrapper) */
-.page-turn-overlay.turning-backward {
-    pointer-events: all;
-}
-
-.page-turn-overlay.turning-backward .turn-page-wrapper {
-    visibility: visible;
-    left: 0;
-    transform-origin: right center;
-    animation: flipPageBackward 1.0s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.page-turn-overlay.turning-backward .turn-page-front::before {
-    right: 0;
-    animation: creaseGlow 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-backward .turn-page-front::after {
-    background: linear-gradient(to left, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.35) 25%, transparent 55%);
-    animation: foldShadowForward 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-backward .turn-book-shadow {
-    right: 0;
-    left: auto;
-    background: linear-gradient(to left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 50%, transparent 100%);
-    animation: shadowFadeIn 1.0s ease forwards;
-}
-
-.page-turn-overlay.turning-backward .turn-page-back::before {
-    background: linear-gradient(to left, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 30%, transparent 55%);
-    animation: backShadowForward 1.0s ease forwards;
-}
-
-@keyframes flipPageForward {
-    0%   { transform: rotateY(0deg)    translateZ(0px); }
-    12%  { transform: rotateY(-18deg)  translateZ(45px) rotateX(2deg); }
-    40%  { transform: rotateY(-72deg)  translateZ(70px) rotateX(7deg); }
-    50%  { transform: rotateY(-90deg)  translateZ(75px) rotateX(8deg); }
-    65%  { transform: rotateY(-118deg) translateZ(50px) rotateX(5deg); }
-    88%  { transform: rotateY(-164deg) translateZ(15px) rotateX(1deg); }
-    100% { transform: rotateY(-180deg) translateZ(0px); }
-}
-
-@keyframes flipPageBackward {
-    0%   { transform: rotateY(0deg)   translateZ(0px); }
-    12%  { transform: rotateY(18deg)  translateZ(45px) rotateX(2deg); }
-    40%  { transform: rotateY(72deg)  translateZ(70px) rotateX(7deg); }
-    50%  { transform: rotateY(90deg)  translateZ(75px) rotateX(8deg); }
-    65%  { transform: rotateY(118deg) translateZ(50px) rotateX(5deg); }
-    88%  { transform: rotateY(164deg) translateZ(15px) rotateX(1deg); }
-    100% { transform: rotateY(180deg) translateZ(0px); }
-}
-
-@keyframes shadowFadeIn {
-    0%   { opacity: 0; }
-    20%  { opacity: 1; }
-    80%  { opacity: 0.7; }
-    100% { opacity: 0; }
-}
-
-/* Gold crease line brightens at peak rotation (90°) then fades */
-@keyframes creaseGlow {
-    0%   { opacity: 0.1; }
-    40%  { opacity: 0.6; }
-    50%  { opacity: 1; }
-    60%  { opacity: 0.6; }
-    100% { opacity: 0.1; }
-}
-
-/* Fold shadow on front face — darkens as it approaches 90° then eases off */
-@keyframes foldShadowForward {
-    0%   { opacity: 0; }
-    45%  { opacity: 1; }
-    55%  { opacity: 1; }
-    100% { opacity: 0.3; }
-}
-
-/* Back face shadow — fades in after the 90° flip */
-@keyframes backShadowForward {
-    0%   { opacity: 1; }
-    50%  { opacity: 0.8; }
-    100% { opacity: 0; }
-}
 
 /* ==============================================
    HERO SECTION
