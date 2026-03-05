@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css?v=10">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -410,13 +411,13 @@
                         </div>
                         <form class="contact-form" id="contact-form">
                             <div class="form-group">
-                                <input type="text" placeholder="Your Name" required>
+                                <input type="text" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" placeholder="Your Email" required>
+                                <input type="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <select required>
+                                <select name="subject" required>
                                     <option value="" disabled selected>Select Interest</option>
                                     <option value="book">Book Inquiry</option>
                                     <option value="consult-30">Power Session (30 min)</option>
@@ -426,7 +427,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <textarea placeholder="Your Message" rows="5" required></textarea>
+                                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-gold full-width">
                                 <span class="btn-shine"></span>

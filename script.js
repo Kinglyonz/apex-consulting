@@ -1,7 +1,25 @@
 /* ========================================
-   THE APEX RULE BOOK — JAVASCRIPT v8
-   Regular scroll, 3D book, animations
+   THE APEX RULE BOOK — JAVASCRIPT v9
+   Regular scroll, 3D book, animations,
+   Supabase signup + contact storage
    ======================================== */
+
+// ==================== SUPABASE ====================
+const SUPABASE_URL = 'https://zutzzmsqrwzpmppqrlod.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp1dHp6bXNxcnd6cG1wcHFybG9kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI2NzU4MDAsImV4cCI6MjA4ODI1MTgwMH0.LN_lerVVyX-HGZs0g3UthRqZy6CBSRVi5N7ZZNik2Cc';
+const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+async function saveSignup(email, source) {
+    const { error } = await db.from('signups').insert({ email, source });
+    if (error) console.error('Signup error:', error.message);
+    return !error;
+}
+
+async function saveContact(name, email, subject, message) {
+    const { error } = await db.from('contacts').insert({ name, email, subject, message });
+    if (error) console.error('Contact error:', error.message);
+    return !error;
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -93,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entries[0].isIntersecting) animateStats();
         }, { threshold: 0.3 });
         observer.observe(heroSection);
-        // Also trigger immediately on load if hero is visible
         animateStats();
     }
 
@@ -149,62 +166,78 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==================== NOTIFY FORMS ====================
-    function handleNotifyForm(form) {
+    function handleNotifyForm(form, source) {
         if (!form) return;
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             const input = form.querySelector('.notify-input');
+            const email = input.value.trim();
             const originalHTML = btn.innerHTML;
 
-            btn.innerHTML = '<span class="btn-shine"></span>Sending...';
+            btn.innerHTML = '<span class="btn-shine"></span>Saving...';
             btn.disabled = true;
             input.disabled = true;
 
-            setTimeout(() => {
+            const ok = await saveSignup(email, source);
+
+            if (ok) {
                 btn.innerHTML = 'You\'re on the list ✓';
                 btn.style.background = 'linear-gradient(135deg, #2d5a27, #4a8c3f)';
                 btn.style.color = '#fff';
+            } else {
+                btn.innerHTML = 'Try again';
+                btn.style.background = 'linear-gradient(135deg, #5a2727, #8c3f3f)';
+            }
 
-                setTimeout(() => {
-                    form.reset();
-                    btn.innerHTML = originalHTML;
-                    btn.style.background = '';
-                    btn.style.color = '';
-                    btn.disabled = false;
-                    input.disabled = false;
-                }, 3500);
-            }, 1200);
+            setTimeout(() => {
+                form.reset();
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.disabled = false;
+                input.disabled = false;
+            }, 3500);
         });
     }
 
-    handleNotifyForm(document.getElementById('notify-form'));
-    handleNotifyForm(document.getElementById('book-notify-form'));
+    handleNotifyForm(document.getElementById('notify-form'), 'hero');
+    handleNotifyForm(document.getElementById('book-notify-form'), 'book');
 
     // ==================== CONTACT FORM ====================
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = contactForm.querySelector('button[type="submit"]');
             const originalHTML = btn.innerHTML;
+
+            const name = contactForm.querySelector('[name="name"]')?.value.trim() || '';
+            const email = contactForm.querySelector('[name="email"]')?.value.trim() || '';
+            const subject = contactForm.querySelector('[name="subject"]')?.value.trim() || '';
+            const message = contactForm.querySelector('[name="message"]')?.value.trim() || '';
 
             btn.innerHTML = '<span class="btn-shine"></span>Sending...';
             btn.style.opacity = '0.7';
             btn.disabled = true;
 
-            setTimeout(() => {
+            const ok = await saveContact(name, email, subject, message);
+
+            if (ok) {
                 btn.innerHTML = 'Message Sent ✓';
                 btn.style.background = 'linear-gradient(135deg, #2d5a27, #4a8c3f)';
-                btn.style.opacity = '1';
+            } else {
+                btn.innerHTML = 'Try again';
+                btn.style.background = 'linear-gradient(135deg, #5a2727, #8c3f3f)';
+            }
+            btn.style.opacity = '1';
 
-                setTimeout(() => {
-                    contactForm.reset();
-                    btn.innerHTML = originalHTML;
-                    btn.style.background = '';
-                    btn.disabled = false;
-                }, 3000);
-            }, 1500);
+            setTimeout(() => {
+                contactForm.reset();
+                btn.innerHTML = originalHTML;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 3000);
         });
     }
 
