@@ -1982,3 +1982,133 @@ img { max-width: 100%; display: block; }
     .countdown-unit { min-width: 50px; padding: 8px 10px; }
     .countdown-sep { font-size: 1.2rem; }
 }
+
+/* ==============================================
+   RESPONSIVE POLISH — v13
+   ============================================== */
+
+/* Prevent any horizontal scroll on all screens */
+html, body { overflow-x: hidden; }
+
+/* ---- TABLET (≤1024px) ---- */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+    }
+    .hero-text { order: 1; }
+    .hero-book-display { order: 2; min-height: 360px; }
+
+    .hero-badge { display: inline-block; }
+    .hero-description { max-width: 560px; margin: 0 auto 28px; }
+    .hero-notify { display: flex; flex-direction: column; align-items: center; }
+    .notify-label { justify-content: center; }
+    .notify-form { width: 100%; max-width: 460px; }
+    .hero-stats { justify-content: center; }
+    .countdown-wrapper { display: flex; flex-direction: column; align-items: center; }
+}
+
+/* ---- MOBILE (≤768px) ---- */
+@media (max-width: 768px) {
+    .page-inner { padding: 90px 20px 48px; }
+
+    /* Hero */
+    .hero-section { padding-top: 0 !important; }
+    .hero-title .title-the { font-size: 0.85rem; letter-spacing: 8px; }
+    .hero-title .title-accent { font-size: 3.5rem; }
+    .hero-title .title-line { font-size: 1.1rem; letter-spacing: 6px; }
+    .hero-tagline { font-size: 0.9rem; }
+    .hero-description { font-size: 0.88rem; }
+
+    /* Book display — smaller, centered */
+    .hero-book-display { min-height: 280px; }
+    .book-3d { width: 170px; height: 244px; }
+    .book-front { width: 170px; height: 244px; }
+    .book-back { width: 170px; height: 244px; }
+    .book-spine { height: 244px; }
+    .book-top, .book-bottom { width: 170px; }
+    .book-right { height: 244px; transform: rotateY(90deg) translateZ(130px) translateX(12px); }
+
+    /* Notify form — stacked */
+    .notify-input-wrap {
+        flex-direction: column;
+        border-radius: 4px;
+        max-width: 100%;
+    }
+    .notify-input { padding: 16px 18px; border-bottom: 1px solid rgba(218,165,32,0.15); text-align: center; }
+    .notify-btn {
+        border-radius: 0 0 4px 4px;
+        width: 100%;
+        padding: 16px;
+        justify-content: center;
+    }
+
+    /* Stats */
+    .stat { padding: 0 14px; }
+    .stat-number { font-size: 2rem; }
+    .stat-label { font-size: 0.55rem; letter-spacing: 1px; }
+    .stat-divider { height: 36px; }
+
+    /* About */
+    .about-top-grid { grid-template-columns: 1fr; }
+    .author-grid { grid-template-columns: 1fr; }
+    .author-card { flex-direction: column; align-items: flex-start; padding: 28px 24px; }
+
+    /* Laws */
+    .laws-grid { grid-template-columns: 1fr; }
+
+    /* Section headings */
+    .section-title { font-size: 1.8rem; letter-spacing: 6px; }
+
+    /* Coming soon label */
+    .coming-soon-label { font-size: 0.45rem; letter-spacing: 3px; padding: 6px 16px; }
+}
+
+/* ---- SMALL MOBILE (≤480px) ---- */
+@media (max-width: 480px) {
+    .page-inner { padding: 80px 16px 40px; }
+
+    /* Title */
+    .hero-title .title-accent { font-size: 2.6rem; }
+    .hero-title .title-line { font-size: 0.95rem; letter-spacing: 5px; }
+    .hero-tagline { font-size: 0.82rem; }
+
+    /* Book — even smaller on tiny phones */
+    .hero-book-display { min-height: 240px; }
+    .book-3d { width: 140px; height: 200px; }
+    .book-front { width: 140px; height: 200px; }
+    .book-back { width: 140px; height: 200px; }
+    .book-spine { height: 200px; }
+    .book-top, .book-bottom { width: 140px; }
+    .book-right { height: 200px; transform: rotateY(90deg) translateZ(110px) translateX(10px); }
+
+    /* Countdown */
+    .countdown { gap: 4px; }
+    .countdown-unit { min-width: 56px; padding: 10px 8px; }
+    .countdown-num { font-size: 1.4rem; }
+    .countdown-sep { font-size: 1.1rem; }
+
+    /* Stats */
+    .hero-stats { gap: 0; flex-wrap: nowrap; }
+    .stat { padding: 0 10px; }
+    .stat-number { font-size: 1.7rem; }
+    .stat-label { font-size: 0.48rem; }
+
+    /* Nav */
+    .logo-text { font-size: 0.9rem; }
+
+    /* Buttons */
+    .btn { padding: 13px 24px; font-size: 0.72rem; }
+
+    /* Author cards */
+    .author-avatar { width: 52px; height: 52px; }
+    .author-name { font-size: 0.9rem; }
+    .author-bio { font-size: 0.8rem; }
+
+    /* Section title */
+    .section-title { font-size: 1.5rem; letter-spacing: 4px; }
+
+    /* Laws footer */
+    .laws-footer-text { font-size: 0.9rem; }
+}
