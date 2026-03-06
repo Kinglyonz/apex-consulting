@@ -194,7 +194,7 @@ img { max-width: 100%; display: block; }
     position: absolute;
     inset: 0;
     background: linear-gradient(145deg, #161616, #0a0a0a);
-    background-image: url('images/book-cover.jpg');
+    background-image: url('images/book-cover.png');
     background-size: cover;
     background-position: center;
     border-radius: 4px 12px 12px 4px;
@@ -854,7 +854,7 @@ img { max-width: 100%; display: block; }
     width: 230px;
     height: 330px;
     background: linear-gradient(145deg, #181818, #0a0a0a);
-    background-image: url('images/book-cover.jpg');
+    background-image: url('images/book-cover.png');
     background-size: cover;
     background-position: center;
     border: 1px solid rgba(218, 165, 32, 0.2);
