@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The APEX Rule Book — Coming Soon | 50 Rules of Power, Success & Personal Sovereignty</title>
-    <link rel="stylesheet" href="styles.css?v=10">
+    <link rel="stylesheet" href="styles.css?v=11">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -17,6 +17,11 @@
         <!-- Ambient background grain -->
         <div class="bg-grain"></div>
         <div class="bg-vignette"></div>
+
+        <!-- Ambient glow orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
         <!-- Navigation -->
         <nav id="navbar" class="navbar">
@@ -74,6 +79,32 @@
                                 <strong>Coming soon.</strong>
                             </p>
 
+                            <!-- Countdown Timer -->
+                            <div class="countdown-wrapper">
+                                <div class="countdown-label"><span class="badge-diamond">◆</span> DROPPING IN</div>
+                                <div class="countdown" id="countdown">
+                                    <div class="countdown-unit">
+                                        <span class="countdown-num" id="cd-days">00</span>
+                                        <span class="countdown-sub">Days</span>
+                                    </div>
+                                    <div class="countdown-sep">:</div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-num" id="cd-hours">00</span>
+                                        <span class="countdown-sub">Hours</span>
+                                    </div>
+                                    <div class="countdown-sep">:</div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-num" id="cd-mins">00</span>
+                                        <span class="countdown-sub">Mins</span>
+                                    </div>
+                                    <div class="countdown-sep">:</div>
+                                    <div class="countdown-unit">
+                                        <span class="countdown-num" id="cd-secs">00</span>
+                                        <span class="countdown-sub">Secs</span>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="hero-notify">
                                 <div class="notify-label">
                                     <span class="badge-diamond">◆</span>
@@ -87,7 +118,7 @@
                                             Notify Me
                                         </button>
                                     </div>
-                                    <p class="notify-sub">No spam. Drop date + early access — that's it.</p>
+                                    <p class="notify-sub"><span class="sub-count-live"><i class="fas fa-circle"></i> <span id="sub-count">1,247</span> already on the list</span> — No spam.</p>
                                 </form>
                             </div>
 
@@ -155,6 +186,35 @@
                 </div>
             </section>
 
+            <!-- ===== MARQUEE TICKER ===== -->
+            <div class="marquee-section">
+                <div class="marquee-track">
+                    <div class="marquee-inner">
+                        <span>Nobody Owes You Anything</span><span class="mdot">◆</span>
+                        <span>Discipline Beats Motivation Every Time</span><span class="mdot">◆</span>
+                        <span>Confidence Is Built, Not Born</span><span class="mdot">◆</span>
+                        <span>If You're Always Available, You're Never Valuable</span><span class="mdot">◆</span>
+                        <span>Most Support Is Performative</span><span class="mdot">◆</span>
+                        <span>Life Rewards Boldness, Not Hesitation</span><span class="mdot">◆</span>
+                        <span>Mediocrity Is Crowded. Success Is Lonely.</span><span class="mdot">◆</span>
+                        <span>Failure Is Tuition for Mastery</span><span class="mdot">◆</span>
+                        <span>Silence Is More Terrifying Than Rage</span><span class="mdot">◆</span>
+                        <span>Your Reputation Is What the Room Says When You Leave</span><span class="mdot">◆</span>
+                        <!-- duplicate for seamless loop -->
+                        <span>Nobody Owes You Anything</span><span class="mdot">◆</span>
+                        <span>Discipline Beats Motivation Every Time</span><span class="mdot">◆</span>
+                        <span>Confidence Is Built, Not Born</span><span class="mdot">◆</span>
+                        <span>If You're Always Available, You're Never Valuable</span><span class="mdot">◆</span>
+                        <span>Most Support Is Performative</span><span class="mdot">◆</span>
+                        <span>Life Rewards Boldness, Not Hesitation</span><span class="mdot">◆</span>
+                        <span>Mediocrity Is Crowded. Success Is Lonely.</span><span class="mdot">◆</span>
+                        <span>Failure Is Tuition for Mastery</span><span class="mdot">◆</span>
+                        <span>Silence Is More Terrifying Than Rage</span><span class="mdot">◆</span>
+                        <span>Your Reputation Is What the Room Says When You Leave</span><span class="mdot">◆</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- ===== PAGE 1: ABOUT ===== -->
             <section class="page" id="about" data-index="1">
                 <div class="page-inner about-section">
@@ -163,31 +223,67 @@
                         <h2 class="section-title">About <span class="gold">The APEX Rule Book</span></h2>
                         <div class="title-underline"></div>
                     </div>
-                    <div class="about-grid">
-                        <div class="about-card">
+                    <!-- Philosophy + Book Overview -->
+                    <div class="about-top-grid">
+                        <div class="about-card about-card--wide">
                             <div class="card-glow"></div>
                             <div class="card-icon"><i class="fas fa-crown"></i></div>
                             <h3>The Philosophy</h3>
-                            <p>The APEX Rule Book delivers 50 unfiltered rules of power, success, and personal sovereignty — designed for the relentless few who refuse to settle for mediocrity. A select minority understands the truths that separate dominance from defeat.</p>
+                            <p>The APEX Rule Book delivers 50 unfiltered rules of power, success, and personal sovereignty — designed for the relentless few who refuse to settle for mediocrity. This isn't therapy. This isn't motivation. This is battle-tested wisdom that demands you act differently.</p>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card about-card--wide">
                             <div class="card-glow"></div>
                             <div class="card-icon"><i class="fas fa-chess-king"></i></div>
                             <h3>The Game Behind the Game</h3>
-                            <p>You're smart enough to know something's broken. You work hard. You show up. But people with less talent are winning. Here's what you're missing: the game behind the game. Apex predators have been mastering the circuits of power.</p>
-                        </div>
-                        <div class="about-card">
-                            <div class="card-glow"></div>
-                            <div class="card-icon"><i class="fas fa-users"></i></div>
-                            <h3>The Authors</h3>
-                            <p>Written by <strong>Dr. Ernesto Lee</strong> and <strong>Candace Lyons</strong> — two minds who have lived these principles. They bring unique perspectives on power dynamics, combining decades of wisdom into one definitive guide.</p>
+                            <p>While you've been following the standard playbook, apex predators have been mastering the circuits of power — building leverage, reading rooms, and operating with a precision that makes success inevitable. This book is that playbook.</p>
                         </div>
                     </div>
+
+                    <!-- Author Cards -->
+                    <div class="authors-label">
+                        <span class="badge-diamond">◆</span> Meet the Authors <span class="badge-diamond">◆</span>
+                    </div>
+                    <div class="author-grid">
+                        <div class="author-card">
+                            <div class="author-card-glow"></div>
+                            <div class="author-avatar">
+                                <div class="author-initials">EL</div>
+                            </div>
+                            <div class="author-info">
+                                <h3 class="author-name">Dr. Ernesto Lee</h3>
+                                <div class="author-title">Business Strategist &amp; Executive Advisor</div>
+                                <p class="author-bio">Two decades of guiding high-performance entrepreneurs, executives, and organizations through the real mechanics of power. Dr. Lee distills the invisible rules the elite follow — and teaches them in plain language with zero apology.</p>
+                                <div class="author-tags">
+                                    <span>Power Dynamics</span>
+                                    <span>Executive Strategy</span>
+                                    <span>Leadership</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="author-card">
+                            <div class="author-card-glow"></div>
+                            <div class="author-avatar">
+                                <div class="author-initials">CL</div>
+                            </div>
+                            <div class="author-info">
+                                <h3 class="author-name">Candace Lyons</h3>
+                                <div class="author-title">Leadership Coach &amp; Behavioral Strategist</div>
+                                <p class="author-bio">Expert in negotiation, personal sovereignty, and the psychology of influence. Candace has coached driven individuals to dismantle self-limiting beliefs and build unshakable personal authority — from the inside out.</p>
+                                <div class="author-tags">
+                                    <span>Behavioral Strategy</span>
+                                    <span>Negotiation</span>
+                                    <span>Transformation</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="about-quote">
                         <div class="quote-marks">"</div>
                         <blockquote>
                             While you've been optimizing your resume and reading self-help books, apex predators have been mastering the circuits of power, building leverage, and operating with a ruthlessness that makes success inevitable.
                         </blockquote>
+                        <cite>— The APEX Rule Book</cite>
                         <div class="quote-marks closing">"</div>
                     </div>
                 </div>
@@ -200,6 +296,7 @@
                         <span class="section-tag">A Preview</span>
                         <h2 class="section-title">The <span class="gold">Rules</span></h2>
                         <div class="title-underline"></div>
+                        <p class="section-sub">6 of 50. These are the ones that will make you uncomfortable.</p>
                     </div>
                     <div class="laws-grid">
                         <div class="law-card" data-law="1">
@@ -238,6 +335,11 @@
                             <p>Motivation is a feeling — unreliable and temporary. Discipline is a system. Build the system and you'll never need to wait to feel ready again.</p>
                             <div class="card-border-glow"></div>
                         </div>
+                    </div>
+                    <div class="laws-footer">
+                        <div class="laws-footer-line"></div>
+                        <p class="laws-footer-text"><span class="gold-text">+ 44 more rules</span> waiting inside the book.</p>
+                        <a href="#book" class="btn btn-outline btn-sm laws-cta-btn">Get Early Access</a>
                     </div>
                 </div>
             </section>
@@ -322,6 +424,6 @@
 
     </div>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=9"></script>
 </body>
 </html>
