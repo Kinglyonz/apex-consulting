@@ -255,12 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================== COVER IMAGE UPGRADE ====================
-    const coverImg = new Image();
-    coverImg.onload = () => {
-        document.querySelectorAll('.book-front').forEach(el => el.classList.add('cover-loaded'));
-    };
-    coverImg.src = 'images/book-cover.jpg';
+    // Cover image is always present — no JS detection needed
 
     // ==================== PRELOAD ====================
     window.addEventListener('load', () => {
@@ -296,20 +291,5 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // ==================== LIVE SUBSCRIBER COUNT ====================
-    const subCountEl = document.getElementById('sub-count');
-    if (subCountEl) {
-        let base = 1247;
-        function formatCount(n) {
-            return n.toLocaleString();
-        }
-        subCountEl.textContent = formatCount(base);
-        setInterval(() => {
-            if (Math.random() > 0.6) {
-                base += Math.floor(Math.random() * 3) + 1;
-                subCountEl.textContent = formatCount(base);
-            }
-        }, 8000);
-    }
 
 });

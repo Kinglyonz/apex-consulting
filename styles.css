@@ -864,12 +864,12 @@ img { max-width: 100%; display: block; }
     box-shadow: 0 0 40px rgba(218, 165, 32, 0.08), inset 0 0 60px rgba(218, 165, 32, 0.03);
 }
 
-/* Hide the CSS text design once the real cover image loads */
-.book-front.cover-loaded .book-front-design {
+/* Real cover image always used — hide CSS text design immediately */
+.book-front-design {
     display: none;
 }
 
-.book-front-design {
+.book-front-design-fallback {
     height: 100%;
     display: flex;
     flex-direction: column;
