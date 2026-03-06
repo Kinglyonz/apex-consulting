@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#0a0a0a"/>
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#DAA520"/>
+    </linearGradient>
+  </defs>
+  <!-- Crown / Emblem matching book cover -->
+  <polygon points="100,28 136,72 172,40 158,118 42,118 28,40 64,72" fill="url(#gold)"/>
+  <rect x="42" y="112" width="116" height="14" rx="2" fill="url(#gold)"/>
+  <polygon points="100,68 112,90 100,106 88,90" fill="#FFD700"/>
+</svg>
