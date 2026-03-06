@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== SCROLL-TRIGGERED FADE IN ====================
     const fadeElements = document.querySelectorAll(
-        '.section-header, .about-card, .law-card, .consult-card, ' +
-        '.hero-text > *, .hero-book-display, .about-quote, .laws-cta, .consult-intro, ' +
+        '.section-header, .about-card, .law-card, ' +
+        '.hero-text > *, .hero-book-display, .about-quote, .laws-cta, ' +
         '.contact-info, .contact-form, .book-showcase, .book-details, .site-footer'
     );
 
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==================== CARD HOVER TILT ====================
-    const cards = document.querySelectorAll('.law-card, .about-card, .consult-card');
+    const cards = document.querySelectorAll('.law-card, .about-card');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
