@@ -11,8 +11,12 @@ const db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 async function saveSignup(email, source) {
     const { error } = await db.from('signups').insert({ email, source });
-    if (error) console.error('Signup error:', error.message);
-    return !error;
+    if (error) {
+        if (error.code === '23505') return 'duplicate'; // unique constraint violation
+        console.error('Signup error:', error.message);
+        return false;
+    }
+    return true;
 }
 
 async function saveContact(name, email, subject, message) {
@@ -181,8 +185,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const ok = await saveSignup(email, source);
 
-            if (ok) {
+            if (ok === true) {
                 btn.innerHTML = 'You\'re on the list ✓';
+                btn.style.background = 'linear-gradient(135deg, #2d5a27, #4a8c3f)';
+                btn.style.color = '#fff';
+            } else if (ok === 'duplicate') {
+                btn.innerHTML = 'Already registered ✓';
                 btn.style.background = 'linear-gradient(135deg, #2d5a27, #4a8c3f)';
                 btn.style.color = '#fff';
             } else {
