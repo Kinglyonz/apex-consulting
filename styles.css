@@ -1940,6 +1940,21 @@ img { max-width: 100%; display: block; }
 .about-top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 60px; }
 
 .authors-label { font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 32px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+
+.authors-photo-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.authors-photo {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 4px;
+    border: 1px solid rgba(218, 165, 32, 0.25);
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(218,165,32,0.1);
+    display: block;
+}
+
 .author-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 60px; }
 .author-card { background: var(--card-bg); border: 1px solid var(--card-border); padding: 36px 32px; position: relative; overflow: hidden; transition: all 0.4s ease; display: flex; gap: 24px; align-items: flex-start; }
 .author-card:hover { border-color: var(--card-hover-border); box-shadow: var(--card-hover-shadow); transform: translateY(-4px); }
