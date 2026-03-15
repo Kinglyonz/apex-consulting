@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==================== COUNTDOWN TIMER ====================
-    const launchDate = new Date('2026-04-03T00:00:00');
+    const launchDate = new Date('2026-03-26T00:00:00');
     function updateCountdown() {
         const now = new Date();
         const diff = launchDate - now;
