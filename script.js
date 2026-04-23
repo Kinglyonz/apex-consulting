@@ -209,9 +209,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    handleNotifyForm(document.getElementById('notify-form'), 'hero');
-    handleNotifyForm(document.getElementById('book-notify-form'), 'book');
-
     // ==================== CONTACT FORM ====================
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -269,35 +266,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', () => {
         document.body.style.opacity = '1';
     });
-
-    // ==================== COUNTDOWN TIMER ====================
-    const launchDate = new Date('2026-03-26T00:00:00');
-    function updateCountdown() {
-        const now = new Date();
-        const diff = launchDate - now;
-        if (diff <= 0) {
-            ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.textContent = '00';
-            });
-            return;
-        }
-        const days    = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours   = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        const pad = n => String(n).padStart(2, '0');
-        const dEl = document.getElementById('cd-days');
-        const hEl = document.getElementById('cd-hours');
-        const mEl = document.getElementById('cd-mins');
-        const sEl = document.getElementById('cd-secs');
-        if (dEl) dEl.textContent = pad(days);
-        if (hEl) hEl.textContent = pad(hours);
-        if (mEl) mEl.textContent = pad(minutes);
-        if (sEl) sEl.textContent = pad(seconds);
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
 
 
 });

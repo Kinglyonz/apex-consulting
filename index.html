@@ -3,14 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The APEX Rule Book — Coming Soon | 50 Brutal Truths to Remain the Apex Predator</title>
+    <title>The APEX Rule Book | 50 Brutal Truths to Remain the Apex Predator</title>
     <link rel="icon" type="image/png" href="images/apex-emblem-512.png">
-    <link rel="stylesheet" href="styles.css?v=16">
+    <link rel="stylesheet" href="styles.css?v=18">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
+    <!-- ==================== EVENT BANNER ==================== -->
+    <div class="event-banner">
+        <div class="event-banner-inner">
+            <span class="event-banner-icon"><i class="fas fa-pen-nib"></i></span>
+            <span class="event-banner-text">
+                <strong>Book Signing — Candace Lyons</strong>
+                <span class="event-sep">◆</span>
+                April 24, 2026 &nbsp;·&nbsp; 5:30–7:30 PM
+                <span class="event-sep">◆</span>
+                VFW Post 1505, Woodbridge
+            </span>
+            <span class="event-banner-icon"><i class="fas fa-pen-nib"></i></span>
+        </div>
+    </div>
 
     <!-- ==================== MAIN SITE ==================== -->
     <div id="main-site" class="main-site">
@@ -55,8 +70,12 @@
                         <div class="hero-text">
                             <div class="hero-badge">
                                 <span class="badge-diamond">◆</span>
-                                THE APEX RULE BOOK — 2026
+                                AVAILABLE NOW ON AMAZON
                                 <span class="badge-diamond">◆</span>
+                            </div>
+                            <div class="bestseller-badge">
+                                <i class="fab fa-amazon"></i>
+                                <span>Amazon Best Seller</span>
                             </div>
                             <h1 class="hero-title">
                                 <span class="title-the">THE</span>
@@ -67,49 +86,13 @@
                             <p class="hero-description">
                                 The rule book you never got. 50 unfiltered truths that separate those who dominate
                                 from those who disappear — written for the relentless few who refuse to settle.
-                                <strong>Coming soon.</strong>
                             </p>
 
-                            <!-- Countdown Timer -->
-                            <div class="countdown-wrapper">
-                                <div class="countdown-label"><span class="badge-diamond">◆</span> DROPPING IN</div>
-                                <div class="countdown" id="countdown">
-                                    <div class="countdown-unit">
-                                        <span class="countdown-num" id="cd-days">00</span>
-                                        <span class="countdown-sub">Days</span>
-                                    </div>
-                                    <div class="countdown-sep">:</div>
-                                    <div class="countdown-unit">
-                                        <span class="countdown-num" id="cd-hours">00</span>
-                                        <span class="countdown-sub">Hours</span>
-                                    </div>
-                                    <div class="countdown-sep">:</div>
-                                    <div class="countdown-unit">
-                                        <span class="countdown-num" id="cd-mins">00</span>
-                                        <span class="countdown-sub">Mins</span>
-                                    </div>
-                                    <div class="countdown-sep">:</div>
-                                    <div class="countdown-unit">
-                                        <span class="countdown-num" id="cd-secs">00</span>
-                                        <span class="countdown-sub">Secs</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="hero-notify">
-                                <div class="notify-label">
-                                    <span class="badge-diamond">◆</span>
-                                    Be First in Line When It Drops
-                                </div>
-                                <form class="notify-form" id="notify-form">
-                                    <div class="notify-input-wrap">
-                                        <input type="email" placeholder="Enter your email" class="notify-input" required>
-                                        <button type="submit" class="btn btn-gold notify-btn">
-                                            <span class="btn-shine"></span>
-                                            Notify Me
-                                        </button>
-                                    </div>
-                                </form>
+                            <div class="hero-cta-wrap">
+                                <a href="https://www.amazon.com/dp/B0GVRSR31V?ref_=pe_123509780_1038749300_i_fed_asin_title" target="_blank" rel="noopener" class="btn btn-gold hero-buy-btn">
+                                    <span class="btn-shine"></span>
+                                    <i class="fab fa-amazon"></i> Get the Book on Amazon
+                                </a>
                             </div>
 
                             <div class="hero-stats">
@@ -130,7 +113,7 @@
                             </div>
                         </div>
                         <div class="hero-book-display">
-                            <div class="coming-soon-label">COMING SOON</div>
+                            <div class="coming-soon-label">OUT NOW</div>
                             <div class="floating-book" id="floating-book">
                                 <div class="book-3d">
                                     <div class="book-face book-front">
@@ -314,7 +297,7 @@
                     <div class="laws-footer">
                         <div class="laws-footer-line"></div>
                         <p class="laws-footer-text"><span class="gold-text">+ 44 more rules</span> waiting inside the book.</p>
-                        <a href="#book" class="btn btn-outline btn-sm laws-cta-btn">Get Early Access</a>
+                        <a href="https://www.amazon.com/dp/B0GVRSR31V?ref_=pe_123509780_1038749300_i_fed_asin_title" target="_blank" rel="noopener" class="btn btn-outline btn-sm laws-cta-btn">Get the Book</a>
                     </div>
                 </div>
             </section>
@@ -323,13 +306,13 @@
             <section class="page" id="book" data-index="3">
                 <div class="page-inner book-section">
                     <div class="section-header">
-                        <span class="section-tag">Coming Soon</span>
+                        <span class="section-tag">Available Now</span>
                         <h2 class="section-title"><span class="gold">The APEX Rule Book</span></h2>
                         <div class="title-underline"></div>
                     </div>
                     <div class="book-coming-grid">
                         <div class="book-showcase">
-                            <div class="book-cs-badge">COMING SOON</div>
+                            <div class="book-cs-badge">OUT NOW</div>
                             <div class="showcase-book" id="showcase-book">
                                 <div class="book-3d showcase-3d">
                                     <div class="book-face book-front">
@@ -355,24 +338,23 @@
                             <div class="book-glow"></div>
                         </div>
                         <div class="book-details">
+                            <div class="bestseller-badge">
+                                <i class="fab fa-amazon"></i>
+                                <span>Amazon Best Seller</span>
+                            </div>
                             <h3 class="book-detail-title">The APEX Rule Book</h3>
                             <p class="book-detail-subtitle">50 Brutal Truths to Remain the Apex Predator</p>
                             <div class="book-authors-line">By Dr. Ernesto Lee &amp; Candace Lyons</div>
                             <p class="book-blurb">
                                 The rule book you never got. 50 unfiltered rules that lead to power, success, and personal
-                                sovereignty — built for the relentless few who refuse to settle. Be first in line
-                                when it drops.
+                                sovereignty — built for the relentless few who refuse to settle. Now available on Amazon.
                             </p>
-                            <form class="book-notify-form" id="book-notify-form">
-                                <div class="notify-input-wrap">
-                                    <input type="email" placeholder="Your email address" class="notify-input" required>
-                                    <button type="submit" class="btn btn-gold">
-                                        <span class="btn-shine"></span>
-                                        Get Early Access
-                                    </button>
-                                </div>
-                                <p class="notify-sub">No spam. Just the drop date and a first look.</p>
-                            </form>
+                            <div class="book-buy-wrap">
+                                <a href="https://www.amazon.com/dp/B0GVRSR31V?ref_=pe_123509780_1038749300_i_fed_asin_title" target="_blank" rel="noopener" class="btn btn-gold book-buy-btn">
+                                    <span class="btn-shine"></span>
+                                    <i class="fab fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                             <div class="book-meta">
                                 <span><i class="fas fa-book"></i> Hardcover &amp; Digital</span>
                                 <span><i class="fas fa-fire"></i> 50 Rules</span>
@@ -394,6 +376,6 @@
 
     </div>
 
-    <script src="script.js?v=12"></script>
+    <script src="script.js?v=13"></script>
 </body>
 </html>

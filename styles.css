@@ -29,6 +29,71 @@
     --card-hover-shadow: 0 16px 64px rgba(0,0,0,0.8), 0 0 40px rgba(218,165,32,0.08);
 }
 
+/* ---------- EVENT BANNER ---------- */
+.event-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    background: linear-gradient(90deg, #B8860B 0%, #DAA520 30%, #FFD700 50%, #DAA520 70%, #B8860B 100%);
+    background-size: 200% auto;
+    animation: bannerShimmer 4s linear infinite;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+@keyframes bannerShimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.event-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.event-banner-text {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #0a0a0a;
+    text-transform: uppercase;
+}
+
+.event-banner-text strong {
+    font-weight: 900;
+}
+
+.event-sep {
+    opacity: 0.5;
+    margin: 0 2px;
+}
+
+.event-banner-icon {
+    color: rgba(0,0,0,0.4);
+    font-size: 0.75rem;
+}
+
+/* Push main site down to account for banner */
+.main-site {
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    .event-banner-text {
+        font-size: 0.6rem;
+        letter-spacing: 0.5px;
+    }
+    .event-banner-icon { display: none; }
+    .main-site { margin-top: 52px; }
+    .navbar { top: 52px; }
+}
+
 /* ---------- RESET ---------- */
 *, *::before, *::after {
     margin: 0;
@@ -394,7 +459,7 @@ img { max-width: 100%; display: block; }
    ============================================== */
 .navbar {
     position: fixed;
-    top: 0;
+    top: 40px;
     left: 0;
     right: 0;
     z-index: 9000;
@@ -703,6 +768,40 @@ img { max-width: 100%; display: block; }
    ============================================== */
 .hero-notify {
     margin-bottom: 20px;
+}
+
+.hero-cta-wrap {
+    margin-bottom: 32px;
+}
+
+.bestseller-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(218,165,32,0.15), rgba(255,215,0,0.08));
+    border: 1px solid rgba(218,165,32,0.5);
+    color: var(--gold-light);
+    font-family: var(--font-display);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+
+.hero-buy-btn,
+.book-buy-btn {
+    font-size: 0.85rem;
+    padding: 16px 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.book-buy-wrap {
+    margin-bottom: 28px;
 }
 
 .notify-label {
