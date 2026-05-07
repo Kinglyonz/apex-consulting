@@ -79,19 +79,8 @@
     font-size: 0.75rem;
 }
 
-/* Push main site down to account for banner */
 .main-site {
-    margin-top: 40px;
-}
-
-@media (max-width: 600px) {
-    .event-banner-text {
-        font-size: 0.6rem;
-        letter-spacing: 0.5px;
-    }
-    .event-banner-icon { display: none; }
-    .main-site { margin-top: 52px; }
-    .navbar { top: 52px; }
+    margin-top: 0;
 }
 
 /* ---------- RESET ---------- */
@@ -459,7 +448,7 @@ img { max-width: 100%; display: block; }
    ============================================== */
 .navbar {
     position: fixed;
-    top: 40px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 9000;
@@ -1710,9 +1699,116 @@ img { max-width: 100%; display: block; }
 
 .consult-card li i { color: var(--gold); font-size: 0.7rem; }
 
-/* ==============================================
-   CONTACT SECTION
-   ============================================== */
+.consult-pillars {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.consult-pillar {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: border-color 0.3s ease;
+}
+
+.consult-pillar:hover {
+    border-color: rgba(218, 165, 32, 0.3);
+}
+
+.pillar-icon {
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+    background: linear-gradient(180deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.consult-pillar h4 {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--gold-light);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.consult-pillar p {
+    font-size: 0.8rem;
+    color: var(--white-dim);
+    line-height: 1.6;
+}
+
+.consult-tier {
+    font-family: var(--font-display);
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.consult-featured-label {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+    color: var(--black);
+    font-family: var(--font-display);
+    font-size: 0.55rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 16px;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+
+.consult-desc {
+    font-size: 0.82rem;
+    color: var(--white-dim);
+    line-height: 1.7;
+    margin-bottom: 22px;
+}
+
+.consult-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.consult-cta-note {
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gray);
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.consult-cta-note .badge-diamond { color: var(--gold); }
+
+@media (max-width: 1024px) {
+    .consult-pillars { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .consult-pillars { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+}
+
+@media (max-width: 480px) {
+    .consult-pillars { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .consult-pillar { padding: 20px 14px; }
+}
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
